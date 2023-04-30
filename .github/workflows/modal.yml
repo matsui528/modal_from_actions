@@ -23,4 +23,4 @@ jobs:
         pip install modal-client
     - name: Run script
       run: |
-        python main.py
+        modal run main.py
