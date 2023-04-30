@@ -22,6 +22,9 @@ jobs:
       run: |
         pip install modal-client
     - name: Run script
+      env:
+        MODAL_TOKEN_ID: ${{ secret.MODAL_TOKEN_ID }}
+        MODAL_TOKEN_SECRET: ${{ secret.MODAL_TOKEN_SECRET }}
       run: |
-        modal token set --token-id ${{ secret.MODAL_TOKEN_ID }} --token-secret ${{ secret.MODAL_TOKEN_SECRET }}
+        modal token set --token-id $MODAL_TOKEN_ID --token-secret $MODAL_TOKEN_SECRET
         modal run main.py
